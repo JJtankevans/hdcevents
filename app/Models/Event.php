@@ -16,6 +16,10 @@ class Event extends Model
 
     protected $dates = ['date'];
 
+    /*permite que todas as infos enviadas por post podem ser atualizadas sem nenhuma restrição
+    serve principalmente para o metodo de editar evento*/
+    protected $guarded = [];
+
     public function user(){
         return $this->belongsTo('App\Models\User');
     }

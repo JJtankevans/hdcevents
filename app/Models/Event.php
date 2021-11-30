@@ -20,7 +20,14 @@ class Event extends Model
     serve principalmente para o metodo de editar evento*/
     protected $guarded = [];
 
+    /*Cria a relação de que um usuário é cria um evento */
     public function user(){
         return $this->belongsTo('App\Models\User');
+    }
+
+    /*Cria uma relação de muitos para muitos no qual um evento pode ter muitos participantes
+    e um participanete pode estar em muitos eventos*/
+    public function users() {
+        return $this->belongsToMany('App\Models\User');
     }
 }
